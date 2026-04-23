@@ -1,22 +1,13 @@
-"""
-URL configuration for proyecto project.
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-from django.contrib import admin
-from django.urls import path
-
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # URLs Funcionales - Autor
+    path('autores/', views.lista_autores, name='lista_autores'),
+    path('autores/crear/', views.crear_autor, name='crear_autor'),
+    path('autores/editar/<int:pk>/', views.editar_autor, name='editar_autor'),
+    path('autores/eliminar/<int:pk>/', views.eliminar_autor, name='eliminar_autor'),
+    
+    # URLs Genéricas - Libro
+    path('libros/', views.LibroListView.as_view(), name='libro_list'),
+    path('libros/crear/', views.LibroCreateView.as_view(), name='libro_create'),
+    path('libros/editar/<int:pk>/', views.LibroUpdateView.as_view(), name='libro_update'),
+    path('libros/eliminar/<int:pk>/', views.LibroDeleteView.as_view(), name='libro_delete'),
 ]
