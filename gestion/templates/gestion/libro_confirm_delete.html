@@ -1,0 +1,16 @@
+{% extends 'gestion/base.html' %}
+
+{% block title %}Eliminar Libro{% endblock %}
+
+{% block content %}
+<div class="alert alert-danger">
+    <h1>Confirmar Eliminación</h1>
+    <p>¿Está seguro que desea eliminar el libro <strong>{{ object.titulo }}</strong>?</p>
+</div>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+    <a href="{% url 'libro_list' %}" class="btn btn-secondary">Cancelar</a>
+</form>
+{% endblock %}
