@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Autor, Libro
 from .forms import AutorForm, LibroForm
+from django.shortcuts import render, redirect, get_object_or_404
 
+def inicio(request):
+    return redirect('lista_autores')
 # ============ CRUD FUNCIONAL - AUTOR ============
 
 def lista_autores(request):
